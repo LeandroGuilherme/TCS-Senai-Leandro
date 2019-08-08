@@ -42,15 +42,19 @@ public class Moto extends Veiculos {
     
     public void acelerar() {
         
-        if(isAcelerarstatus() == true){
+        if(isPneu() == false && isLigdesstatuts() == true){
             setTanque(getTanque()-5);
+            System.out.println("Acelerando..... Voce tem " + getTanque() + " de tanque sobrando");
+        }else if(isPneu() == true){
+            System.out.println("Voce precisa trocar o pneu para acelerar");
+        }else if (isLigdesstatuts() == true){
+            System.out.println("Voce precisa ligar a moto");
         }else if(getTanque() <= 20 ){
-            System.out.println("Você precisa abastecer");
-            System.out.println("Seu tanque esta em: " + getTanque());
+            System.out.println("Você precisa abastecer");    
         }else if(getTanque() == 0){
             setLigdesstatuts(false);
-            System.out.println("Seu Carro desligou por falta de gasolina");
-            System.out.println("Voce precisa abastecer seu tanque esta em: " + getTanque());
+            System.out.println("Sua Moto desligou por falta de combustivel");
+            
         }
     }
 
@@ -65,8 +69,11 @@ public class Moto extends Veiculos {
         setPrecocombustivel(4.90f);
         System.out.println("O preço do gasolina é " + getPrecocombustivel());
         
-        if(getTanque() < 100 ){
+        if (isLigdesstatuts() == true){
+            System.out.println("O caminhao está ligado por favor desligue");
+        }else if(getTanque() < 100 ){
             this.setTanque(this.getTanque()+10);
+            System.out.println("Seu tanque esta em: " + getTanque()); 
         }else if(getTanque() == 100){
             System.out.println("Tanque já cheio");
         }
@@ -75,24 +82,26 @@ public class Moto extends Veiculos {
     @Override
     public void trocarpneu() {
         
-        if(isPneu() == true){
+        if(isPneu() == false){
             System.out.println("Seu pneu esta normal");
-        }else{
+        }else if(isLigdesstatuts() == false){
             setTrocarpneu(true);
-            System.out.println("Trocando Pneu....");
-            setPneu(true);
+            System.out.println("Trocando Pneu......");
+            setPneu(false);
             System.out.println("Seu Pneu foi Trocado");
             
+        }else{
+            System.out.println("Desligue o carro para trocar o pneu");
         }
     }
 
     @Override
     public void estourarpneu() {
         
-        if(isPneu() == false){
+        if(isPneu() == true){
             System.out.println("Seu pneu ja estourou pare de andar");
         }else{
-            setPneu(false);
+            setPneu(true);
             System.out.println("Seu pneu estourou");
         }
             
