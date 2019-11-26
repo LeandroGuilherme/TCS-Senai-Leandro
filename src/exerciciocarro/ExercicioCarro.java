@@ -108,12 +108,10 @@ public class ExercicioCarro {
                    
                     break;
 
-
               default:
                   System.out.println("Opcao não existe!!!!");  
             }
          
         }        
-    }
-    
+    }    
 }
