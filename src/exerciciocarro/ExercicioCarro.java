@@ -113,11 +113,7 @@ public class ExercicioCarro {
                   System.out.println("Opcao não existe!!!!");  
             }
          
-        }
-     
-       
-             
-        
+        }        
     }
     
 }
