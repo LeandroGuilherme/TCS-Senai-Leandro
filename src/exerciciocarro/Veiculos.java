@@ -83,8 +83,4 @@ public abstract class Veiculos implements interfacecarro {
     public void setPrecocombustivel(float precocombustivel) {
         this.precocombustivel = precocombustivel;
     }
-    
-    
-    
-       
 }
